@@ -1,7 +1,7 @@
 from django.db import models
-
 from django.core.exceptions import ValidationError
 # Create your models here.
+
 
 class Medecin(models.Model):
     id_medecin = models.AutoField(primary_key=True)
@@ -67,6 +67,7 @@ class RendezVous(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     date_rendez_vous = models.DateField()
     heure_debut = models.TimeField()
+    type_rendez_vous = models.CharField(max_length=50)
     consultation = models.ForeignKey(Consultation,on_delete=models.CASCADE,null=True,blank=True)
     operation = models.ForeignKey(Operation,on_delete=models.CASCADE,null=True,blank=True)
     def __str__(self):
