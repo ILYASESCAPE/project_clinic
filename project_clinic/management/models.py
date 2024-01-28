@@ -73,8 +73,23 @@ class RendezVous(models.Model):
     def __str__(self):
         return f"{self.id_rendezvous}"
 
-    def verifie(self):
-        if self.consultation and self.operation:
-            raise ValidationError("On ne peut pas choisir à la fois consultation et opération")
-        if not self.consultation and not self.operation:
-            raise ValidationError("vous devez choisir soit la consultation, soit l'opération")
+    def add(self):
+        if self.type_rendez_vous == 'Consultation':
+            consultation = Consultation.objects.create(
+                nombre_consultation=0,  # You may adjust this default value
+                diagnosis='',  # You may adjust this default value
+                Traitement='',  # You may adjust this default value
+            )
+            self.consultation = consultation
+
+        elif self.type_rendez_vous == 'Operation':
+            operation = Operation.objects.create(
+                resulat='',  # You may adjust this default value
+                suivi_postoperatoire='',  # You may adjust this default value
+            )
+            self.operation = operation
+
+    def save(self, *args, **kwargs):
+        # Call the add method before saving to create related consultation or operation
+        self.add()
+        super().save(*args, **kwargs)

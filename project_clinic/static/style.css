@@ -1,0 +1,239 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Poppins";
+    
+    
+    }
+    @media screen and (max-width: 991px){
+        #homme .banner{
+            height: 50vh;
+        }
+    }
+    #homme .banner{
+     max-width: 1300px;
+     margin: 0 auto;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     padding: 40px 0;
+     
+    }
+    #homme{
+        position: relative;
+    }
+    #homme::before{
+        position: absolute;
+        content:"" ;
+        height: 100%;
+        width: 100%;
+        background-image: url(/static/wave1.svg);
+        background-size: cover;
+        background-position: right;
+
+    }
+    
+    #homme .banner img{
+        max-width: 500px;
+       
+        
+      
+    }
+    #homme .banner h6{
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #565656;
+    }
+    #homme .banner h3{
+        font-size: 3.5em;
+        line-height: 1.2em;
+         color:#0f9fcd;
+        
+        
+    }
+    #homme .banner p{
+        font-size: 1.2em;
+        margin: 30px 0 50px 0;
+        margin-bottom: 40px;
+        color: #565656;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #homme .banner a{
+        background-color: #0f9fcd;
+        border-radius: 20px;
+        color: white;
+        padding: 0.7em 2em;
+        cursor: pointer; 
+     
+        
+    }
+    input[type="submit"],
+    button{
+    width: 192px;
+    height: 60px;
+    border-radius: 35px;
+    border: none;
+    background-color: #1fb3bf;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    outline: none;
+    
+    
+    }
+    h1 {
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    section#appointement .container {
+       padding: 70px 15px;
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content:center;
+        flex-direction: row-reverse;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0px 10px 50px -10px black;
+        
+        
+      
+    }
+    section#appointement .container .formulaire{
+        width: 50%;
+        margin-left: 70px;
+        margin-bottom: 10px;
+        
+    }
+    
+    
+    section#appointement .container .formulaire h3{
+    font-size: 2em;
+    color: #2a2a2a;
+    }
+    section#appointement .container .formulaire input{
+     margin: 10px 0;
+     padding: 8px;
+     border: none;
+     outline: none;
+     border-bottom: 2px solid #e4e4ec;
+     transform: 0.2s;
+    }
+    section#appointement .container .formulaire input:hover{
+    
+     border-bottom: 2px solid #1fb3bf;
+    }
+    section#appointement .container .image{
+        width: 50%;
+        margin-top: 36px;
+        height: 80%;
+    
+    }
+    
+    section#appointement{
+    background-color: #ffffff;
+    padding: 50px 0;
+    }
+   
+    section#appointement .container .formulaire-image{
+        width: 50%;
+        height: 300px;
+        margin-top: 30px;
+        height: 60%;
+        border-radius: 10px;
+        
+    }
+
+    section#patient .container {
+        padding: 70px 15px;
+         max-width: 1100px;
+         margin: 0 auto;
+         display: flex;
+         justify-content:center;
+         flex-direction: row-reverse;
+         background-color: white;
+         border-radius: 15px;
+         box-shadow: 0px 10px 50px -10px black;
+         
+         
+       
+     }
+     section#patient .container .formulaire{
+         width: 50%;
+         margin-left: 70px;
+         margin-bottom: 10px;
+         
+     }
+     
+     
+     section#patient .container .formulaire h3{
+     font-size: 2em;
+     color: #2a2a2a;
+     }
+     section#patient .container .formulaire input{
+      margin: 10px 0;
+      padding: 8px;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid #e4e4ec;
+      transform: 0.2s;
+     }
+     section#patient .container .formulaire input:hover{
+     
+      border-bottom: 2px solid #1fb3bf;
+     }
+     section#patient .container .image{
+         width: 50%;
+         margin-top: 36px;
+         height: 80%;
+     
+     }
+     
+    section#patient {
+        background-color: #f9f9f9;
+        padding: 50px 0;
+    }
+    
+     section#patient .container .formulaire-image{
+         width: 50%;
+         height: 300px;
+         margin-top: 30px;
+         height: 60%;
+         border-radius: 10px;
+         
+     }
+
+    .img{
+    border-radius: 10px;
+    }
+    section#patient .container .formulaire-image {
+        
+        border-radius: 15px;
+    }
+   
+    html::-webkit-scrollbar {
+        width: 0.5vw;
+        
+      }
+    
+      html::-webkit-scrollbar-thumb {
+        background-color: #7775;
+        border-radius: 5px;
+      }
+    
+      html::-webkit-scrollbar-thumb:hover {
+        background-color: #777;
+      }
+    
+     
+      html::-webkit-scrollbar-track {
+        background-color: #5555;
+      }
+    

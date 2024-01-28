@@ -1,14 +1,33 @@
-{% extends 'home.html' %}
+{% extends 'base.html' %}
 
-{% block title %}Employee{% endblock title %}
+{% block title %}Rendez vous{% endblock title %}
 
 {% block content %}
-<h1 class="text-center">rendez vous</h1>
+<h1 class="text-center"></h1>
 
-<form method="post" >
-    {% csrf_token %}
-    {{form.as_p}}
+<div id="content" name="content" class="main">
+	<div class="row justify-content-center">
+		<div class="col-8">
+			<h1 class="mt-2">Rendez vous</h1>
+			<hr class="mt-0 mb-4">
+		</div>
+	</div>
+</div>
 
-    <button type="submit" class="btn btn-primary mt-2">Submit</button>
-</form>
+<section id="appointement">
+    <div class="container">
+        <div class="formulaire">
+            <h3>Planifier un rendez-vous</h3>
+            <form method="post" >
+                {% csrf_token %}
+                {{form.as_p}}
+            
+                <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+            </form>
+        </div>
+        <div class="formulaire-image">
+            <img style="border-radius: 15px; width:500px; height:400px;" src="https://i.pinimg.com/564x/3f/44/d1/3f44d10e516cdb9d812c5f17a8d76b15.jpg" alt="">
+         </div>
+     </div>
+</section>
 {% endblock content %}

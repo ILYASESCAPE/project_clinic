@@ -1,10 +1,9 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.admin.widgets import AdminDateWidget
-from management.models import Medecin, RendezVous
+from management.models import Medecin, RendezVous, Patient
 
 SPECIALITE_CHOICES = [
-    ("default", "---"),
     ("Cardiologue", "Cardiologue"),
     ("Neurologue", "Neurologue"),
     ("Urologue", "Urologue"),
@@ -19,25 +18,37 @@ TYPE_RDV_COICES =[
 
 class medecinForm(ModelForm):
 
-    #date_naissance_medecin = forms.DateField(widget=forms.DateInput)
-    #specialite = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=SPECIALITE_CHOISES)
-    specialite = forms.ChoiceField(choices=SPECIALITE_CHOICES, widget=forms.Select(attrs={'class': 'form-control', 'style': 'width: 200px;' 'border: solid;' 'margin: 50px;'}))
+    specialite = forms.ChoiceField(choices=SPECIALITE_CHOICES, widget=forms.Select(attrs={'class': 'form-control', 'style': 'width: 150px;' 'display: inline-block;'}))
     class Meta:
         model = Medecin
-        #fields = ["nom", "prenom", "email"]
         fields = "__all__"
         widgets = {
-            'date_naissance': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date', 'style': 'width: 200px;'}),
-            #'specialite': forms.CheckboxSelectMultiple,
+            'date_naissance': forms.DateInput(format=('%m/%d/%Y'), attrs={ 'placeholder':'Select a date', 'type':'date', 'style': 'width: 150px;'}),
         }
 
 class RendezVousForm(ModelForm):
-    type_rendez_vous = forms.ChoiceField(choices=TYPE_RDV_COICES, widget=forms.Select(attrs={'class': 'form-control', 'style': 'width: 200px;'}))
+
+    type_rendez_vous = forms.ChoiceField(choices=TYPE_RDV_COICES, widget=forms.Select(attrs={'class': 'form-control', 'style': 'width: 200px;' 'display: inline-block;'}))
     class Meta:
         model = RendezVous
         fields = ["medecin", "patient", "date_rendez_vous", "heure_debut", "type_rendez_vous"]
-        #fields = "__all__"
         widgets = {
-            'date_rendez_vous': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date', 'style': 'width: 200px;'}),
+            'date_rendez_vous': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date', 'style': 'width: 200px;' 'display: inline-block;'}),
             'heure_debut': forms.TimeInput(attrs={'type': 'time'}),
         }
+
+class PatientForm(forms.ModelForm):
+ class Meta:
+    model = Patient
+    fields = ('nom','prenom','date_naissance','numero_telephone','email')
+
+    widgets = {
+            'date_naissance': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'datep', 'placeholder':'Select a date', 'type':'date', 'style': 'width: 150px;'}),
+        }
+ def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['prenom'].widget = forms.TextInput(attrs={'class': 'pren'})
+        self.fields['nom'].widget = forms.TextInput(attrs={'class': 'nomp'})
+        #self.fields['date_naissance'].widget = forms.DateInput(attrs={'class': 'datep'})
+        self.fields['numero_telephone'].widget = forms.TextInput(attrs={'class': 'numtel'})
+        self.fields['email'].widget = forms.TextInput(attrs={'class': 'emailp'})
